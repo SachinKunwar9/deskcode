@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import AddDidForm from "../../forms/adddidform";
+// import AddDidForm from "../../forms/adddidform";
 import Textinput from "@/components/ui/Textinput";
 import Modal from "@/components/ui/Modal";
 import { useState } from "react"; // Import useState hook
@@ -25,18 +25,14 @@ function AddDid() {
           Add new DID
         </button> */}
         <Modal
-          activeModal={showModal} 
+          activeModal={showModal}
           onClose={closeModal}
           label={"Add Did"}
-          className="max-w-xl" 
-          title="Add DID Modal" 
-          uncontrol 
-
-          
+          className="max-w-xl"
+          title="Add DID Modal"
+          uncontrol
         >
-
-<AdddidForm/>
-            
+          <AdddidForm />
         </Modal>
       </Card>
     </>
