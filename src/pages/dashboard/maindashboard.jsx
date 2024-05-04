@@ -7,7 +7,7 @@ function MainDashboard() {
     <Sidebar/>
     
 </>
-      );
+      ); 
 }
 
 export default MainDashboard;

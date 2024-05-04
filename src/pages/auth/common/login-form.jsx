@@ -3,7 +3,7 @@ import Textinput from "@/components/ui/Textinput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Checkbox from "@/components/ui/Checkbox";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
@@ -29,14 +29,21 @@ const LoginForm = () => {
   });
 
   const loginUser = async (formData) => {
+    debugger;
+  
     try {
       const response = await axios.post("http://localhost:3000/login", formData);
       if (!response.data.token) {
         throw new Error("Invalid credentials");
       }
       // dispatch(setUser(data));
-      navigate("/maindashboard");
-      localStorage.setItem("user", JSON.stringify(response.data));
+      localStorage.setItem("token", JSON.stringify(response.data.token));
+      navigate('/maindashboard');
+      // navigate("/maindashboard");
+    //  navigate("/adddid");
+      console.log("hello");
+      console.log("this is the way");
+      
       toast.success("Login Successful");
     } catch (error) {
       setError(error.message);
