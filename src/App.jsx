@@ -131,6 +131,7 @@ import AddProduct from "./pages/ecommerce/add-product";
 import InvoiceEPage from "./pages/ecommerce/invoice-ecompage";
 import MainDashboard from "./pages/dashboard/maindashboard";
 import AddDid from "./pages/app/Did/adddid";
+import Calllogs from "./pages/app/Did/Calllogs";
 
 function App() {
   return (
@@ -155,6 +156,7 @@ function App() {
           <Route path ="maindashboard" element ={<MainDashboard/>} />
 
           <Route path ="adddid" element ={<AddDid/>} />
+          <Route path ="calllogs" element ={<Calllogs/>} />
           <Route path="ecommerce" element={<Ecommerce />} />
           <Route path="crm" element={<CrmPage />} />
           <Route path="project" element={<ProjectPage />} />

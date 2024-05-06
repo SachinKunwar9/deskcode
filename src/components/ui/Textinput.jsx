@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Icon from "@/components/ui/Icon";
 import Cleave from "cleave.js/react";
 import "cleave.js/dist/addons/cleave-phone.us";
@@ -8,7 +8,7 @@ const Textinput = ({
   placeholder = "Add placeholder",
   classLabel = "form-label",
   className = "",
-  classGroup = "",
+  classGroup,
   register,
   name,
   readonly,
@@ -27,12 +27,36 @@ const Textinput = ({
   options,
   onFocus,
   defaultValue,
+  maxLength,
+  numericonly,
+  numeral,
+   text,
 
   ...rest
 }) => {
+
+  // const handleInputChange = (event) => {
+  //   const inputValue = event.target.value;
+  //   const numericValue = inputValue.replace(/\D/g, ""); // Replace non-numeric characters with an empty string
+  //   onChange(numericValue); // Pass the sanitized numeric value to the parent component
+  // };
+
   const [open, setOpen] = useState(false);
+
+
   const handleOpen = () => {
     setOpen(!open);
+  };
+
+  const cleaveOptions = {
+    ...options,
+    numeral: true,
+    numericOnly: true,
+    blocks: maxLength ? [maxLength] : null,
+  };
+
+  const cleanInputValue = (value) => {
+    return value.replace(/,/g, "");
   };
 
   return (
@@ -54,7 +78,7 @@ const Textinput = ({
       <div className={`relative ${horizontal ? "flex-1" : ""}`}>
         {name && !isMask && (
           <input
-            type={type === "password" && open === true ? "text" : type}
+            type={type === "password" && open === true ? "Text" : type}
             {...register(name)}
             {...rest}
             className={`${
@@ -70,7 +94,7 @@ const Textinput = ({
         )}
         {!name && !isMask && (
           <input
-            type={type === "password" && open === true ? "text" : type}
+            type={type === "password" && open === true ? "Text" : type}
             className={`form-control py-2 ${className}`}
             placeholder={placeholder}
             readOnly={readonly}
@@ -85,7 +109,7 @@ const Textinput = ({
             {...register(name)}
             {...rest}
             placeholder={placeholder}
-            options={options}
+            options={{ ...cleaveOptions}}
             className={`${
               error ? " has-error" : " "
             } form-control py-2 ${className}  `}
@@ -94,12 +118,15 @@ const Textinput = ({
             readOnly={readonly}
             disabled={disabled}
             onChange={onChange}
+            numericonly={numericonly}
+            maxLength={maxLength}
+            
           />
         )}
         {!name && isMask && (
           <Cleave
             placeholder={placeholder}
-            options={options}
+            options={{...cleaveOptions}}
             className={`${
               error ? " has-error" : " "
             } form-control py-2 ${className}  `}
@@ -108,6 +135,9 @@ const Textinput = ({
             readOnly={readonly}
             disabled={disabled}
             onChange={onChange}
+           numericonly={numericonly}
+           maxLength={maxLength}
+
           />
         )}
         {/* icon */}

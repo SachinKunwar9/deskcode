@@ -36,14 +36,10 @@ const LoginForm = () => {
       if (!response.data.token) {
         throw new Error("Invalid credentials");
       }
-      // dispatch(setUser(data));
+     
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      navigate('/maindashboard');
-      // navigate("/maindashboard");
-    //  navigate("/adddid");
-      console.log("hello");
-      console.log("this is the way");
-      
+      navigate("/maindashboard");
+           
       toast.success("Login Successful");
     } catch (error) {
       setError(error.message);

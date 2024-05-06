@@ -8,6 +8,8 @@ import useMobileMenu from "@/hooks/useMobileMenu";
 import Submenu from "./Submenu";
 
 const Navmenu = ({ menus }) => {
+ 
+
   const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   const toggleSubmenu = (i) => {
@@ -19,6 +21,7 @@ const Navmenu = ({ menus }) => {
   };
 
   const location = useLocation();
+  // const LocationName = location.pathname="/"
   const locationName = location.pathname.replace("/", "");
   const [mobileMenu, setMobileMenu] = useMobileMenu();
   const [activeMultiMenu, setMultiMenu] = useState(null);

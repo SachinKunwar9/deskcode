@@ -9,51 +9,52 @@ export const menuItems = [
     icon: "heroicons-outline:home",
     isOpen: true,
     isHide: true,
-    child: [
-      {
-        childtitle: "Analytics Dashboard",
-        childlink: "dashboard",
-      },
-      {
-        childtitle: "Ecommerce Dashboard",
-        childlink: "ecommerce",
-      },
-      {
-        childtitle: "Project  Dashbaord",
-        childlink: "project",
-      },
-      {
-        childtitle: " CRM Dashbaord",
-        childlink: "crm",
-      },
-      {
-        childtitle: "Banking Dashboard",
-        childlink: "banking",
-      },
-    ],
+    link:'/maindashboard'
+    // child: [
+    //   {
+    //     childtitle: "Analytics Dashboard",
+    //     childlink: "dashboard",
+    //   },
+    //   {
+    //     childtitle: "Ecommerce Dashboard",
+    //     childlink: "ecommerce",
+    //   },
+    //   {
+    //     childtitle: "Project  Dashbaord",
+    //     childlink: "project",
+    //   },
+    //   {
+    //     childtitle: " CRM Dashbaord",
+    //     childlink: "crm",
+    //   },
+    //   {
+    //     childtitle: "Banking Dashboard",
+    //     childlink: "banking",
+    //   },
+    // ],
   },
   {
     title: "DID Config",
     icon: "heroicons:arrow-trending-up",
-    link: "changelog",
+    link: "/adddid",
     isOpen:true,
     isHide: true,
-    badge: "1.0.0",
-    child:[
-      {
-        childtitle:"All DID",
-        childlink:'alldid'
-      },
+    badge: "1.0.0"
+    // child:[
+    //   {
+    //     childtitle:"All DID",
+    //     childlink:'alldid'
+    //   },
 
-      {
-          childtitle:"Add DID",
-          childlink:"adddid"
-      },
-      {
-        childtitle:"Edit DID",
-        childlink:"editdid"
-      }
-    ]
+    //   {
+    //       childtitle:"Add DID",
+    //       childlink:"adddid"
+    //   },
+    //   {
+    //     childtitle:"Edit DID",
+    //     childlink:"editdid"
+    //   }
+    // ]
   },
   {
     isHeadr: true,
@@ -64,21 +65,21 @@ export const menuItems = [
     title: "IVR",
     isHide: true,
     icon: "heroicons-outline:chat",
-    link: "chat",
+    link: "ivr",
   },
 
   {
     title: "Time Condition",
     isHide: true,
     icon: "heroicons-outline:mail",
-    link: "email",
+    link: "timeconditon",
   },
 
   {
     title: "Api",
     isHide: true,
     icon: "heroicons-outline:view-boards",
-    link: "kanban",
+    link: "api",
   },
   {
     title: "Analytics",
@@ -91,7 +92,7 @@ export const menuItems = [
     title: "Call Logs",
     isHide: true,
     icon: "heroicons-outline:clipboard-check",
-    link: "todo",
+    link: "/calllogs",
   },
 
   {

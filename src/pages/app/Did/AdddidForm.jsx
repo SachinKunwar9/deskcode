@@ -6,9 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NumberInput from "@/components/ui/Number";
+import { NumberSchema, number } from "yup";
 
 
-function AdddidForm() {
+function AdddidForm(props) {
 //   const { register, control, handleSubmit, reset, trigger, setError } = useForm(
 //     {
 //       defaultValues: {
@@ -69,14 +71,28 @@ const config = {
 
 const handleSubmit = async ()=>{
   
+  const config = {
+    url: 'http://localhost:3000/adddid',
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      Authorization: `Bearer ${token}`.replaceAll('"',''),
+      'Content-Type': 'application/json;charset=UTF-8'
+    },
+    data: {
+     did:did
+    }
+  };
 
 try {
+  //axios(config);
   console.log(config);
-  debugger;
-  const response = await axios.post(`http://localhost:3000/adddid`,config,did);
+  const response =await axios(config)
 
    console.log(response.data);
    notify("successfully created a Did");
+   props.onClose()
+
 } catch (error) {
   console.log("something happens wrong");
   navigate('/adddid');
@@ -90,8 +106,9 @@ try {
   return (
     <>
       <div>
-        {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-          <Textinput placeholder={"Enter the DID"} className="mb-3" value={did} onChange={handleInputChange}></Textinput>
+        {/* <form onSubmit={handleSubmit(onSubmit)}> */} 
+         <Textinput placeholder={"Enter the DID"} className="mb-3" value={did} onChange={handleInputChange}  label="DID" isMask  maxLength={6}  classGroup={Number}  numeral={true} ></Textinput>
+         {/* <NumberInput></NumberInput> */}
           <Button text={"Submit"} type={"submit"} onClick={handleSubmit}></Button>
         {/* </form> */}
       </div>
